@@ -16,9 +16,9 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
         <ul>
-            <li>Liverpool</li>
-            <li>Chelsea</li>
-            <li>Arsenal</li>
+	   {% for t in TOPIC_DICT["Home"] %}
+	     <li><a href="{{t[1]}}">{{t[0]}}</a></li>
+	   {% endfor %}
         </ul>
 
     </div>
@@ -26,9 +26,9 @@
 
     <div role="tabpanel" class="tab-pane" id="profile">
         <ul>
-            <li>Kenyatta</li>
-            <li>kibaki</li>
-            <li>moi</li>
+	   {% for t in TOPIC_DICT["Profile"] %}
+	     <li><a href="{{t[1]}}">{{t[0]}}</a></li>
+	   {% endfor %}
         </ul>
 
     </div>
@@ -52,3 +52,5 @@
 </div>
 
 {% endblock %}
+
+
