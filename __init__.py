@@ -37,7 +37,7 @@ class RegistrationForm(Form):
     email = StringField('Email', validators=[DataRequired(), Length(1, 64),
                                              Email()])
     password = PasswordField('New Password', validators=[
-        DataRequired(), EqualTo('Confirm', message='Passwords must match.')])
+        DataRequired(), EqualTo('confirm', message='Passwords must match.')])
     confirm = PasswordField('Repeat Password')
     accept_tos = BooleanField('I accept the Terms of Service and Privacy Notice (updated Jan 22, 2015)',
                               validators=[DataRequired()])
@@ -82,7 +82,7 @@ def register_page():
     except Exception as e:
         return (str(e))
 
-
+"""""
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -103,7 +103,7 @@ def logout():
     gc.collect()
     return redirect(url_for('dashboard'))
 
-
+"""""
 @app.route('/login/', methods=["GET", "POST"])
 def login_page():
     error = ''
