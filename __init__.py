@@ -82,7 +82,6 @@ def register_page():
     except Exception as e:
         return (str(e))
 
-"""""
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -103,7 +102,7 @@ def logout():
     gc.collect()
     return redirect(url_for('dashboard'))
 
-"""""
+
 @app.route('/login/', methods=["GET", "POST"])
 def login_page():
     error = ''
@@ -150,6 +149,41 @@ def dashboard():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html")
+
+
+@app.route(TOPIC_DICT["Basics"][0][1], methods=['GET', 'POST'])
+def introduction_to_python_programming():
+    update_user_tracking()
+    completed_percentages = topic_completion_percent()
+    return render_template("tutorials/basics/python-introduction.html",completed_percentages=completed_percentages, curLink = TOPIC_DICT["Basics"][0][1], curTitle=TOPIC_DICT["Basic"][0][1],  nextLink = TOPIC_DICT["Basics"][1][1], nextTitle = TOPIC_DICT["Basics"][1][1])
+
+
+@app.route(TOPIC_DICT["Basics"][1][1], methods=['GET', 'POST'])
+def python_tutorial_print_function_strings():
+    update_user_tracking()
+    completed_percentages = topic_completion_percent()
+    return render_template("tutorials/basics/print-function-and-strings.html",completed_percentages=completed_percentages, curLink = TOPIC_DICT["Basics"][1][1], curTitle=TOPIC_DICT["Basic"][1][1],  nextLink = TOPIC_DICT["Basics"][2][1], nextTitle = TOPIC_DICT["Basics"][2][1])
+
+
+@app.route(TOPIC_DICT["Basics"][2][1], methods=['GET', 'POST'])
+def math_basics_python_3_beginner_tutorial():
+    update_user_tracking()
+    completed_percentages = topic_completion_percent()
+    return render_template("tutorials/basics/math-with-python.html",completed_percentages=completed_percentages, curLink = TOPIC_DICT["Basics"][2][1], curTitle=TOPIC_DICT["Basic"][2][1],  nextLink = TOPIC_DICT["Basics"][3][1], nextTitle = TOPIC_DICT["Basics"][3][1])
+
+@app.route(TOPIC_DICT["Basics"][3][1], methods=['GET', 'POST'])
+def python_3_variables_tutorial():
+    update_user_tracking()
+    completed_percentages = topic_completion_percent()
+    return render_template("tutorials/basics/variables.html",completed_percentages=completed_percentages, curLink = TOPIC_DICT["Basics"][3][1], curTitle=TOPIC_DICT["Basic"][3][1],  nextLink = TOPIC_DICT["Basics"][4][1], nextTitle = TOPIC_DICT["Basics"][4][1])
+
+@app.route(TOPIC_DICT["Basics"][4][1], methods=['GET', 'POST'])
+def python_3_loop_tutorial():
+    update_user_tracking()
+    completed_percentages = topic_completion_percent()
+    return render_template("tutorials/basics/while-loop.html",completed_percentages=completed_percentages, curLink = TOPIC_DICT["Basics"][4][1], curTitle=TOPIC_DICT["Basic"][4][1],  nextLink = TOPIC_DICT["Basics"][5][1], nextTitle = TOPIC_DICT["Basics"][5][1])
+
+
 
 
 if __name__ == "__main__":
