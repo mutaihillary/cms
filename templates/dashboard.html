@@ -6,7 +6,7 @@
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">SCIENCE</a></li>
+    <li role="presentation" class="active"><a href="#basics" aria-controls="basics" role="tab" data-toggle="tab">Basics</a></li>
     <li role="presentation"><a href="#Kiswahili" aria-controls="profile" role="tab" data-toggle="tab">KISWAHILI</a></li>
     <li role="presentation"><a href="#English" aria-controls="messages" role="tab" data-toggle="tab">ENGLISH</a></li>
     <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">SETTINGS</a></li>
@@ -16,12 +16,13 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
         <ul>
-	   {% for t in TOPIC_DICT["Home"] %}
+	   {% for t in TOPIC_DICT["basics"] %}
 	     <li><a href="{{t[1]}}">{{t[0]}}</a></li>
 	   {% endfor %}
         </ul>
 
     </div>
+
 
 
     <div role="tabpanel" class="tab-pane" id="profile">
